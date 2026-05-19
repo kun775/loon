@@ -1,7 +1,9 @@
 /**
  * uKids VIP 解锁脚本
  *
- * 拦截接口：GET https://prod.ukids.cn/uch5/getUser
+ * 拦截接口：
+ *   GET https://prod.ukids.cn/uch5/getUser
+ *   GET https://fastapi.ukids.cn/ucapp/sync
  *
  * 覆盖字段：
  *   vip / vipReal / svip / type / typeReal / svipType
@@ -16,6 +18,37 @@ const EXPIRY_DATE = "2099-12-31";
 const TOTAL_DAYS = 365;
 const EFFECT_DAYS = 365;
 
+// unlockVipUser 固定改写用户会员字段。
+//
+// 参数:
+//   - user object: 用户会员字段对象
+//
+// 元数据:
+//   - 作者: VitaHuang
+//   - 创建时间: 2026-05-19
+//   - 更新时间: 2026-05-19
+//   - 更新内容: 抽取会员字段改写逻辑，兼容 getUser 和 sync 接口。
+function unlockVipUser(user) {
+  // 状态字段
+  user.vip = VIP_STATUS;
+  user.vipReal = VIP_STATUS;
+  user.svip = SVIP_STATUS;
+  user.type = VIP_STATUS;
+  user.typeReal = VIP_STATUS;
+  user.svipType = SVIP_STATUS;
+
+  // 到期日期（vipEnd / vipEndReal / svipEnd 统一使用同一日期）
+  user.vipEnd = EXPIRY_DATE;
+  user.vipEndReal = EXPIRY_DATE;
+  user.svipEnd = EXPIRY_DATE;
+
+  // 天数统计
+  user.vipTotal = TOTAL_DAYS;
+  user.svipTotal = TOTAL_DAYS;
+  user.vipEffect = EFFECT_DAYS;
+  user.svipEffect = EFFECT_DAYS;
+}
+
 // ── 触发确认（调试用，确认后可删除）──────────────────────────────────
 console.log("[ukids_vip] ✅ 脚本已触发，URL=" + $request.url);
 
@@ -29,26 +62,8 @@ try {
 
 // ── 修改 VIP 相关字段 ───────────────────────────────────────────
 if (obj && obj.success && obj.data) {
-  const d = obj.data;
-
-  // 状态字段
-  d.vip = VIP_STATUS;
-  d.vipReal = VIP_STATUS;
-  d.svip = SVIP_STATUS;
-  d.type = VIP_STATUS;
-  d.typeReal = VIP_STATUS;
-  d.svipType = SVIP_STATUS;
-
-  // 到期日期（vipEnd / vipEndReal / svipEnd 统一使用同一日期）
-  d.vipEnd = EXPIRY_DATE;
-  d.vipEndReal = EXPIRY_DATE;
-  d.svipEnd = EXPIRY_DATE;
-
-  // 天数统计
-  d.vipTotal = TOTAL_DAYS;
-  d.svipTotal = TOTAL_DAYS;
-  d.vipEffect = EFFECT_DAYS;
-  d.svipEffect = EFFECT_DAYS;
+  const user = obj.data.user || obj.data;
+  unlockVipUser(user);
 
   console.log(
     "[ukids_vip] VIP 字段已修改 → vip=" +
