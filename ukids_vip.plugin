@@ -1,0 +1,11 @@
+#!name=uKids VIP 解锁
+#!desc=拦截 GET /uch5/getUser 接口，固定改写 VIP/SVIP 状态和到期信息
+#!openUrl=
+#!author=
+#!icon=
+
+[Script]
+http-response ^https://prod\.ukids\.cn/uch5/getUser script-path=https://raw.githubusercontent.com/kun775/loon/refs/heads/main/ukids_vip.js, requires-body=true, timeout=10, tag=ukids_getUser
+
+[MITM]
+hostname = prod.ukids.cn
