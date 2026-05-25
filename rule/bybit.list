@@ -25,6 +25,8 @@ DOMAIN-SUFFIX,byapps.net,no-resolve
 DOMAIN-SUFFIX,byd3c3.com,no-resolve
 DOMAIN-SUFFIX,bybdc6.com,no-resolve
 DOMAIN-SUFFIX,appsflyer.com,no-resolve
+DOMAIN-SUFFIX,ng-dex.com,no-resolve
+DOMAIN-SUFFIX,wsot2022.com,no-resolve
 IP-CIDR,13.32.121.6/32
 IP-CIDR,43.133.238.145/32
 IP-CIDR,13.33.187.108/32
