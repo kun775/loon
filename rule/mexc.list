@@ -1,0 +1,27 @@
+#!name=MEXC分流
+#!desc=MEXC APP分流规则
+#!author=huang
+#!homepage=https://github.com/
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/author/NaiSi_01.png
+#!raw-url=https://raw.githubusercontent.com/
+#!update=2026-08-24 13:22:05
+#############################################
+
+DOMAIN,app-measurement.com,no-resolve
+DOMAIN-SUFFIX,mexc.com,no-resolve
+DOMAIN-SUFFIX,mexc.co,no-resolve
+DOMAIN-SUFFIX,mexc.io,no-resolve
+DOMAIN-SUFFIX,mexc.fm,no-resolve
+DOMAIN-SUFFIX,mexc.ge,no-resolve
+DOMAIN-SUFFIX,mexc.in,no-resolve
+DOMAIN-SUFFIX,mexc.link,no-resolve
+DOMAIN-SUFFIX,mexc.cg,no-resolve
+DOMAIN-SUFFIX,mexc.ci,no-resolve
+DOMAIN-SUFFIX,mexc.sg,no-resolve
+DOMAIN-SUFFIX,mexcsensors.com,no-resolve
+DOMAIN-SUFFIX,mxc.com,no-resolve
+DOMAIN-SUFFIX,appsflyer.com,no-resolve
+DOMAIN-SUFFIX,amazonaws.com,no-resolve
+DOMAIN-SUFFIX,flaytogarden.com,no-resolve
+DOMAIN-SUFFIX,engage7.com,no-resolve
+DOMAIN-SUFFIX,theengagelab.com,no-resolve

@@ -1,0 +1,16 @@
+#!name=Maya分流
+#!desc=Maya APP分流规则
+#!author=huang
+#!homepage=https://github.com/
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/author/NaiSi_01.png
+#!raw-url=https://raw.githubusercontent.com/
+#!update=2026-08-24 13:34:54
+#############################################
+
+DOMAIN,app-measurement.com,no-resolve
+DOMAIN-SUFFIX,maya.ph,no-resolve
+DOMAIN-SUFFIX,paymaya.com,no-resolve
+DOMAIN-SUFFIX,mayabank.ph,no-resolve
+DOMAIN-SUFFIX,voyagerinnovation.com,no-resolve
+DOMAIN-SUFFIX,appsflyer.com,no-resolve
+DOMAIN-SUFFIX,amazonaws.com,no-resolve
