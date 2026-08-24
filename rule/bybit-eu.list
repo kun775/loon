@@ -1,0 +1,13 @@
+#!name=Bybit EU分流
+#!desc=Bybit EUAPP分流规则
+#!author=huang
+#!homepage=https://github.com/
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/author/NaiSi_01.png
+#!raw-url=https://raw.githubusercontent.com/
+#!update=2026-08-24 15:03:32
+#############################################
+
+DOMAIN-SUFFIX,bybit.eu,no-resolve
+DOMAIN-SUFFIX,fourhline.com,no-resolve
+DOMAIN-SUFFIX,snplow.net,no-resolve
+
